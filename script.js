@@ -106,5 +106,24 @@ layoutSelect.addEventListener("change", function () {
 });
 
 // 4. Save both selected preferences to Local Storage.
+
+const STORAGE_KEY = "mtm6302-a4-creature-preferences";
+
+// PSEUDOCODE:
+// read the current theme and layout from the dropdowns
+// put them together in one object
+// turn the object into a JSON string and store it
+// tell the visitor their choices were saved
+
+function savePreferences() {
+  const preferences = {
+    theme: themeSelect.value,
+    layout: layoutSelect.value
+  };
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
+  statusMessage.textContent = "Your preferences have been saved!";
+}
+
 // 5. Check for saved data on load and restore the controls and appearance.
 // Add short pseudocode comments
