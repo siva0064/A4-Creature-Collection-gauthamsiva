@@ -42,6 +42,9 @@ const $creatures = [
 // 1. Select the collection and preference controls.
 
 const collectionList = document.getElementById("collection");
+const themeSelect = document.getElementById("theme");
+const layoutSelect = document.getElementById("layout");
+const statusMessage = document.getElementById("status");
 
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
 
@@ -73,6 +76,35 @@ function renderCollection() {
 renderCollection();
 
 // 3. Listen for changes to each preference control and update the appearance.
+
+// PSEUDOCODE:
+// take a theme value (forest, sky or desert)
+// set it as the body's data-theme attribute
+
+function applyTheme(theme) {
+  document.body.dataset.theme = theme;
+}
+
+// PSEUDOCODE:
+// take a layout value (cards, detailed or compact)
+// set it as the collection's data-layout attribute
+
+function applyLayout(layout) {
+  collectionList.dataset.layout = layout;
+}
+
+// PSEUDOCODE:
+// when the theme dropdown changes, apply the newly selected theme
+// when the layout dropdown changes, apply the newly selected layout
+
+themeSelect.addEventListener("change", function () {
+  applyTheme(themeSelect.value);
+});
+
+layoutSelect.addEventListener("change", function () {
+  applyLayout(layoutSelect.value);
+});
+
 // 4. Save both selected preferences to Local Storage.
 // 5. Check for saved data on load and restore the controls and appearance.
-// Add short pseudocode comments before writing each feature.
+// Add short pseudocode comments
