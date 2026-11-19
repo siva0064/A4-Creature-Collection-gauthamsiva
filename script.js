@@ -44,6 +44,34 @@ const $creatures = [
 const collectionList = document.getElementById("collection");
 
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
+
+// PSEUDOCODE:
+// clear the list so entries never duplicate
+// for each creature in the array
+//   build an <li> with an image, name and description
+//   add it to the collection list
+
+function renderCollection() {
+  collectionList.innerHTML = "";
+
+  for (const creature of $creatures) {
+    const item = document.createElement("li");
+    item.className = "creature";
+
+    item.innerHTML = `
+      <img src="${creature.image}" alt="${creature.alt}">
+      <div class="creature-info">
+        <h3>${creature.name}</h3>
+        <p class="creature-description">${creature.description}</p>
+      </div>
+    `;
+
+    collectionList.appendChild(item);
+  }
+}
+
+renderCollection();
+
 // 3. Listen for changes to each preference control and update the appearance.
 // 4. Save both selected preferences to Local Storage.
 // 5. Check for saved data on load and restore the controls and appearance.
