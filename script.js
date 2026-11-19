@@ -40,6 +40,9 @@ const $creatures = [
 
 // YOUR WORK: build these features using the supplied HTML, CSS, and data.
 // 1. Select the collection and preference controls.
+
+const collectionList = document.getElementById("collection");
+
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
 // 3. Listen for changes to each preference control and update the appearance.
 // 4. Save both selected preferences to Local Storage.
