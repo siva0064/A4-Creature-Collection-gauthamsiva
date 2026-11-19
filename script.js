@@ -128,4 +128,36 @@ function savePreferences() {
 }
 
 // 5. Check for saved data on load and restore the controls and appearance.
+
+// PSEUDOCODE:
+// look for saved data in Local Storage
+// if nothing is saved
+//   keep the Forest/Cards look and show a welcome message
+// otherwise
+//   parse the saved object
+//   set both dropdowns to the saved values
+//   apply the theme and layout to the page
+//   tell the visitor their choices were restored
+
+function loadPreferences() {
+  const savedData = localStorage.getItem(STORAGE_KEY);
+
+  if (savedData === null) {
+    statusMessage.textContent = "No saved preferences yet. Choose a theme and layout to make this collection yours.";
+    return;
+  }
+
+  const preferences = JSON.parse(savedData);
+
+  themeSelect.value = preferences.theme;
+  layoutSelect.value = preferences.layout;
+
+  applyTheme(preferences.theme);
+  applyLayout(preferences.layout);
+
+  statusMessage.textContent = "Your saved preferences have been restored.";
+}
+
+loadPreferences();
+
 // Add short pseudocode comments
