@@ -99,10 +99,12 @@ function applyLayout(layout) {
 
 themeSelect.addEventListener("change", function () {
   applyTheme(themeSelect.value);
+  savePreferences(); 
 });
 
 layoutSelect.addEventListener("change", function () {
   applyLayout(layoutSelect.value);
+  savePreferences();
 });
 
 // 4. Save both selected preferences to Local Storage.
